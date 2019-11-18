@@ -14,6 +14,7 @@ import java.sql.SQLOutput;
 //45
 public class Application {
     public static void main(String[] args) {
+        System.out.println("two");
         SpringApplication.run(Application.class,args);
     }
 }
