@@ -9,7 +9,7 @@ import tk.mybatis.spring.annotation.MapperScan;
 @SpringBootApplication
 @MapperScan(basePackages = "com.imooc.mapper")
 @ComponentScan(basePackages="com.imooc")
-//
+//123
 public class Application {
     public static void main(String[] args) {
     SpringApplication.run(Application.class,args);
