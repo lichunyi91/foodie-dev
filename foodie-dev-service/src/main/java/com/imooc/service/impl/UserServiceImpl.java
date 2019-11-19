@@ -19,30 +19,29 @@ import java.util.UUID;
 @Service
 public class UserServiceImpl implements UserService {
 
+    private static final String USER_FACE = "";
     @Autowired
     private UsersMapper usersMapper;
-
-    private  static  final  String USER_FACE="";
 
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public boolean queryUsernameIsExist(String username) {
 
-        Example userExample =new Example(Users.class);
+        Example userExample = new Example(Users.class);
         Example.Criteria criteria = userExample.createCriteria();
-        criteria.andEqualTo("username",username);
+        criteria.andEqualTo("username", username);
         Users users = usersMapper.selectOneByExample(userExample);
 
-        return users==null?false:true;
+        return users == null ? false : true;
     }
 
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public void createUser(UserBO userBO) {
 
-       Users user=new Users();
-       user.setId(UUID.randomUUID().toString());
-       user.setUsername(userBO.getUsername());
+        Users user = new Users();
+        user.setId(UUID.randomUUID().toString());
+        user.setUsername(userBO.getUsername());
         try {
             user.setPassword(MD5Utils.getMD5Str(userBO.getPassword()));
         } catch (Exception e) {
@@ -55,5 +54,16 @@ public class UserServiceImpl implements UserService {
         user.setCreatedTime(new Date());
         user.setUpdatedTime(new Date());
         usersMapper.insert(user);
-}
+    }
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public Users queryUserForLogin(String username, String password) {
+        Example example = new Example(Users.class);
+        Example.Criteria criteria = example.createCriteria();
+        criteria.andEqualTo("username", username);
+        criteria.andEqualTo("password", password);
+        Users users = usersMapper.selectOneByExample(example);
+        return users;
+    }
 }
