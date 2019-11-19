@@ -117,5 +117,11 @@
             <version>5.0.3</version>
         </dependency>
 
+        <!--用户id-->
+        <dependency>
+            <groupId>com.github.bingoohuang</groupId>
+            <artifactId>idworker-client</artifactId>
+            <version>1.5</version>
+        </dependency>
     </dependencies>
 </project>

@@ -62,8 +62,17 @@ public class PassportController {
             return IMOOCJSONResult.errorMsg("用户名或密码不正确");
         }
 
-        return IMOOCJSONResult.ok();
+        return IMOOCJSONResult.ok(userResult);
     }
 
+    private  Users setNullProperty(Users userResult){
+        userResult.setPassword(null);
+        userResult.setMobile(null);
+        userResult.setEmail(null);
+        userResult.setCreatedTime(null);
+        userResult.setUpdatedTime(null);
+        userResult.setBirthday(null);
+        return userResult;
+    }
 
 }
