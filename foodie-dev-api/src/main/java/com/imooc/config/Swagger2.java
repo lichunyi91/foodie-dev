@@ -20,7 +20,7 @@ public class Swagger2 {
                 apis((RequestHandlerSelectors.basePackage("com.imooc.controller"))).paths(PathSelectors.any()).build();
 
     }
-
+//
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder().title("电商平台接口api").contact(new Contact("imooc", "https://www.imooc.com", "abc@imooc.com")).
                 description("专为天天吃货提供的api文档").version("1.0.1").termsOfServiceUrl("https://www.imooc.com").build();
