@@ -59,6 +59,12 @@ public class UserServiceImpl implements UserService {
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public Users queryUserForLogin(String username, String password) {
+
+//        try {
+//            Thread.sleep(2500);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
         Example example = new Example(Users.class);
         Example.Criteria criteria = example.createCriteria();
         criteria.andEqualTo("username", username);
