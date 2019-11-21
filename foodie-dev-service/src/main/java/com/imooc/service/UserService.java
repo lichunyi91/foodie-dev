@@ -9,5 +9,5 @@ public interface UserService {
 
    public void createUser(UserBO userBO);
 
-   public Users queryUserForLogin(String username,String password);
+   public Users queryUserForLogin(String username, String password);
 }
