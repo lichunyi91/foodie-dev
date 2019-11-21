@@ -35,4 +35,9 @@ public class CategoryServiceImpl implements CategoryService {
         List<CategoryVO> subCatList = categoryMapperCustom.getSubCatList(rootCatId);
         return subCatList;
     }
+
+    @Override
+    public List getSixNewItemsLazy(Integer rootCatId) {
+        return null;
+    }
 }
