@@ -6,13 +6,13 @@ import java.util.Date;
 @Table(name = "user_address")
 public class UserAddress {
     /**
-     * 主键id
+     * 地址主键id
      */
     @Id
     private String id;
 
     /**
-     * 关联用户di
+     * 关联用户id
      */
     @Column(name = "user_id")
     private String userId;
@@ -61,46 +61,46 @@ public class UserAddress {
     /**
      * 创建时间
      */
-    @Column(name = "CREATED_TIME")
+    @Column(name = "created_time")
     private Date createdTime;
 
     /**
      * 更新时间
      */
-    @Column(name = "UPDATED_TIME")
+    @Column(name = "updated_time")
     private Date updatedTime;
 
     /**
-     * 获取主键id
+     * 获取地址主键id
      *
-     * @return id - 主键id
+     * @return id - 地址主键id
      */
     public String getId() {
         return id;
     }
 
     /**
-     * 设置主键id
+     * 设置地址主键id
      *
-     * @param id 主键id
+     * @param id 地址主键id
      */
     public void setId(String id) {
         this.id = id;
     }
 
     /**
-     * 获取关联用户di
+     * 获取关联用户id
      *
-     * @return user_id - 关联用户di
+     * @return user_id - 关联用户id
      */
     public String getUserId() {
         return userId;
     }
 
     /**
-     * 设置关联用户di
+     * 设置关联用户id
      *
-     * @param userId 关联用户di
+     * @param userId 关联用户id
      */
     public void setUserId(String userId) {
         this.userId = userId;
@@ -253,7 +253,7 @@ public class UserAddress {
     /**
      * 获取创建时间
      *
-     * @return CREATED_TIME - 创建时间
+     * @return created_time - 创建时间
      */
     public Date getCreatedTime() {
         return createdTime;
@@ -271,7 +271,7 @@ public class UserAddress {
     /**
      * 获取更新时间
      *
-     * @return UPDATED_TIME - 更新时间
+     * @return updated_time - 更新时间
      */
     public Date getUpdatedTime() {
         return updatedTime;

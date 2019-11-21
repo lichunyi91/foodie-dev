@@ -7,7 +7,7 @@ import java.util.Date;
 @Table(name = "items_spec")
 public class ItemsSpec {
     /**
-     * 主键id
+     * 商品规格id
      */
     @Id
     private String id;
@@ -36,8 +36,8 @@ public class ItemsSpec {
     /**
      * 优惠价
      */
-    @Column(name = "price_discounts")
-    private Integer priceDiscounts;
+    @Column(name = "price_discount")
+    private Integer priceDiscount;
 
     /**
      * 原价
@@ -48,28 +48,28 @@ public class ItemsSpec {
     /**
      * 创建时间
      */
-    @Column(name = "CREATED_TIME")
+    @Column(name = "created_time")
     private Date createdTime;
 
     /**
      * 更新时间
      */
-    @Column(name = "UPDATED_TIME")
+    @Column(name = "updated_time")
     private Date updatedTime;
 
     /**
-     * 获取主键id
+     * 获取商品规格id
      *
-     * @return id - 主键id
+     * @return id - 商品规格id
      */
     public String getId() {
         return id;
     }
 
     /**
-     * 设置主键id
+     * 设置商品规格id
      *
-     * @param id 主键id
+     * @param id 商品规格id
      */
     public void setId(String id) {
         this.id = id;
@@ -150,19 +150,19 @@ public class ItemsSpec {
     /**
      * 获取优惠价
      *
-     * @return price_discounts - 优惠价
+     * @return price_discount - 优惠价
      */
-    public Integer getPriceDiscounts() {
-        return priceDiscounts;
+    public Integer getPriceDiscount() {
+        return priceDiscount;
     }
 
     /**
      * 设置优惠价
      *
-     * @param priceDiscounts 优惠价
+     * @param priceDiscount 优惠价
      */
-    public void setPriceDiscounts(Integer priceDiscounts) {
-        this.priceDiscounts = priceDiscounts;
+    public void setPriceDiscount(Integer priceDiscount) {
+        this.priceDiscount = priceDiscount;
     }
 
     /**
@@ -186,7 +186,7 @@ public class ItemsSpec {
     /**
      * 获取创建时间
      *
-     * @return CREATED_TIME - 创建时间
+     * @return created_time - 创建时间
      */
     public Date getCreatedTime() {
         return createdTime;
@@ -204,7 +204,7 @@ public class ItemsSpec {
     /**
      * 获取更新时间
      *
-     * @return UPDATED_TIME - 更新时间
+     * @return updated_time - 更新时间
      */
     public Date getUpdatedTime() {
         return updatedTime;

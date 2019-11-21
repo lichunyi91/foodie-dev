@@ -3,7 +3,7 @@ package com.imooc.pojo;
 import javax.persistence.*;
 import java.util.Date;
 
-public class Carouse {
+public class Carousel {
     /**
      * 主键
      */
@@ -11,7 +11,7 @@ public class Carouse {
     private String id;
 
     /**
-     * 图片
+     * 图片 图片地址
      */
     @Column(name = "image_url")
     private String imageUrl;
@@ -23,13 +23,19 @@ public class Carouse {
     private String backgroundColor;
 
     /**
-     * 商品id
+     * 商品id 商品id
      */
     @Column(name = "item_id")
     private String itemId;
 
     /**
-     * 轮播图类型
+     * 商品分类id 商品分类id
+     */
+    @Column(name = "cat_id")
+    private String catId;
+
+    /**
+     * 轮播图类型 轮播图类型，用于判断，可以根据商品id或者分类进行页面跳转，1：商品 2：分类
      */
     private Integer type;
 
@@ -45,16 +51,16 @@ public class Carouse {
     private Integer isShow;
 
     /**
-     * 创建时间
+     * 创建时间 创建时间
      */
-    @Column(name = "CREATED_TIME")
-    private Date createdTime;
+    @Column(name = "create_time")
+    private Date createTime;
 
     /**
-     * 更新时间
+     * 更新时间 更新
      */
-    @Column(name = "UPDATED_TIME")
-    private Date updatedTime;
+    @Column(name = "update_time")
+    private Date updateTime;
 
     /**
      * 获取主键
@@ -75,18 +81,18 @@ public class Carouse {
     }
 
     /**
-     * 获取图片
+     * 获取图片 图片地址
      *
-     * @return image_url - 图片
+     * @return image_url - 图片 图片地址
      */
     public String getImageUrl() {
         return imageUrl;
     }
 
     /**
-     * 设置图片
+     * 设置图片 图片地址
      *
-     * @param imageUrl 图片
+     * @param imageUrl 图片 图片地址
      */
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
@@ -111,36 +117,54 @@ public class Carouse {
     }
 
     /**
-     * 获取商品id
+     * 获取商品id 商品id
      *
-     * @return item_id - 商品id
+     * @return item_id - 商品id 商品id
      */
     public String getItemId() {
         return itemId;
     }
 
     /**
-     * 设置商品id
+     * 设置商品id 商品id
      *
-     * @param itemId 商品id
+     * @param itemId 商品id 商品id
      */
     public void setItemId(String itemId) {
         this.itemId = itemId;
     }
 
     /**
-     * 获取轮播图类型
+     * 获取商品分类id 商品分类id
      *
-     * @return type - 轮播图类型
+     * @return cat_id - 商品分类id 商品分类id
+     */
+    public String getCatId() {
+        return catId;
+    }
+
+    /**
+     * 设置商品分类id 商品分类id
+     *
+     * @param catId 商品分类id 商品分类id
+     */
+    public void setCatId(String catId) {
+        this.catId = catId;
+    }
+
+    /**
+     * 获取轮播图类型 轮播图类型，用于判断，可以根据商品id或者分类进行页面跳转，1：商品 2：分类
+     *
+     * @return type - 轮播图类型 轮播图类型，用于判断，可以根据商品id或者分类进行页面跳转，1：商品 2：分类
      */
     public Integer getType() {
         return type;
     }
 
     /**
-     * 设置轮播图类型
+     * 设置轮播图类型 轮播图类型，用于判断，可以根据商品id或者分类进行页面跳转，1：商品 2：分类
      *
-     * @param type 轮播图类型
+     * @param type 轮播图类型 轮播图类型，用于判断，可以根据商品id或者分类进行页面跳转，1：商品 2：分类
      */
     public void setType(Integer type) {
         this.type = type;
@@ -183,38 +207,38 @@ public class Carouse {
     }
 
     /**
-     * 获取创建时间
+     * 获取创建时间 创建时间
      *
-     * @return CREATED_TIME - 创建时间
+     * @return create_time - 创建时间 创建时间
      */
-    public Date getCreatedTime() {
-        return createdTime;
+    public Date getCreateTime() {
+        return createTime;
     }
 
     /**
-     * 设置创建时间
+     * 设置创建时间 创建时间
      *
-     * @param createdTime 创建时间
+     * @param createTime 创建时间 创建时间
      */
-    public void setCreatedTime(Date createdTime) {
-        this.createdTime = createdTime;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
     /**
-     * 获取更新时间
+     * 获取更新时间 更新
      *
-     * @return UPDATED_TIME - 更新时间
+     * @return update_time - 更新时间 更新
      */
-    public Date getUpdatedTime() {
-        return updatedTime;
+    public Date getUpdateTime() {
+        return updateTime;
     }
 
     /**
-     * 设置更新时间
+     * 设置更新时间 更新
      *
-     * @param updatedTime 更新时间
+     * @param updateTime 更新时间 更新
      */
-    public void setUpdatedTime(Date updatedTime) {
-        this.updatedTime = updatedTime;
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
     }
 }

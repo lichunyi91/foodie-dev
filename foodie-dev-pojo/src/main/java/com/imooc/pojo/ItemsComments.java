@@ -6,13 +6,13 @@ import java.util.Date;
 @Table(name = "items_comments")
 public class ItemsComments {
     /**
-     * 主键id
+     * id主键
      */
     @Id
     private String id;
 
     /**
-     * 用户id
+     * 用户id 用户名须脱敏
      */
     @Column(name = "user_id")
     private String userId;
@@ -30,19 +30,19 @@ public class ItemsComments {
     private String itemName;
 
     /**
-     * 商品规格id
+     * 商品规格id 可为空
      */
     @Column(name = "item_spec_id")
     private String itemSpecId;
 
     /**
-     * 规格名称
+     * 规格名称 可为空
      */
-    @Column(name = "spec_name")
-    private String specName;
+    @Column(name = "sepc_name")
+    private String sepcName;
 
     /**
-     * 评价等级
+     * 评价等级 1：好评 2：中评 3：差评
      */
     @Column(name = "comment_level")
     private Integer commentLevel;
@@ -55,46 +55,46 @@ public class ItemsComments {
     /**
      * 创建时间
      */
-    @Column(name = "CREATED_TIME")
+    @Column(name = "created_time")
     private Date createdTime;
 
     /**
      * 更新时间
      */
-    @Column(name = "UPDATED_TIME")
+    @Column(name = "updated_time")
     private Date updatedTime;
 
     /**
-     * 获取主键id
+     * 获取id主键
      *
-     * @return id - 主键id
+     * @return id - id主键
      */
     public String getId() {
         return id;
     }
 
     /**
-     * 设置主键id
+     * 设置id主键
      *
-     * @param id 主键id
+     * @param id id主键
      */
     public void setId(String id) {
         this.id = id;
     }
 
     /**
-     * 获取用户id
+     * 获取用户id 用户名须脱敏
      *
-     * @return user_id - 用户id
+     * @return user_id - 用户id 用户名须脱敏
      */
     public String getUserId() {
         return userId;
     }
 
     /**
-     * 设置用户id
+     * 设置用户id 用户名须脱敏
      *
-     * @param userId 用户id
+     * @param userId 用户id 用户名须脱敏
      */
     public void setUserId(String userId) {
         this.userId = userId;
@@ -137,54 +137,54 @@ public class ItemsComments {
     }
 
     /**
-     * 获取商品规格id
+     * 获取商品规格id 可为空
      *
-     * @return item_spec_id - 商品规格id
+     * @return item_spec_id - 商品规格id 可为空
      */
     public String getItemSpecId() {
         return itemSpecId;
     }
 
     /**
-     * 设置商品规格id
+     * 设置商品规格id 可为空
      *
-     * @param itemSpecId 商品规格id
+     * @param itemSpecId 商品规格id 可为空
      */
     public void setItemSpecId(String itemSpecId) {
         this.itemSpecId = itemSpecId;
     }
 
     /**
-     * 获取规格名称
+     * 获取规格名称 可为空
      *
-     * @return spec_name - 规格名称
+     * @return sepc_name - 规格名称 可为空
      */
-    public String getSpecName() {
-        return specName;
+    public String getSepcName() {
+        return sepcName;
     }
 
     /**
-     * 设置规格名称
+     * 设置规格名称 可为空
      *
-     * @param specName 规格名称
+     * @param sepcName 规格名称 可为空
      */
-    public void setSpecName(String specName) {
-        this.specName = specName;
+    public void setSepcName(String sepcName) {
+        this.sepcName = sepcName;
     }
 
     /**
-     * 获取评价等级
+     * 获取评价等级 1：好评 2：中评 3：差评
      *
-     * @return comment_level - 评价等级
+     * @return comment_level - 评价等级 1：好评 2：中评 3：差评
      */
     public Integer getCommentLevel() {
         return commentLevel;
     }
 
     /**
-     * 设置评价等级
+     * 设置评价等级 1：好评 2：中评 3：差评
      *
-     * @param commentLevel 评价等级
+     * @param commentLevel 评价等级 1：好评 2：中评 3：差评
      */
     public void setCommentLevel(Integer commentLevel) {
         this.commentLevel = commentLevel;
@@ -211,7 +211,7 @@ public class ItemsComments {
     /**
      * 获取创建时间
      *
-     * @return CREATED_TIME - 创建时间
+     * @return created_time - 创建时间
      */
     public Date getCreatedTime() {
         return createdTime;
@@ -229,7 +229,7 @@ public class ItemsComments {
     /**
      * 获取更新时间
      *
-     * @return UPDATED_TIME - 更新时间
+     * @return updated_time - 更新时间
      */
     public Date getUpdatedTime() {
         return updatedTime;

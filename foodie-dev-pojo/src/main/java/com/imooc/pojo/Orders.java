@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class Orders {
     /**
-     * 订单主键
+     * 订单主键;同时也是订单编号
      */
     @Id
     private String id;
@@ -47,7 +47,7 @@ public class Orders {
     private Integer realPayAmount;
 
     /**
-     * 邮费
+     * 邮费;默认可以为零，代表包邮
      */
     @Column(name = "post_amount")
     private Integer postAmount;
@@ -70,42 +70,42 @@ public class Orders {
     private String extand;
 
     /**
-     * 买家是否评价
+     * 买家是否评价;1：已评价，0：未评价
      */
     @Column(name = "is_comment")
     private Integer isComment;
 
     /**
-     * 逻辑删除状态
+     * 逻辑删除状态;1: 删除 0:未删除
      */
     @Column(name = "is_delete")
     private Integer isDelete;
 
     /**
-     * 创建时间
+     * 创建时间（成交时间）
      */
-    @Column(name = "CREATED_TIME")
+    @Column(name = "created_time")
     private Date createdTime;
 
     /**
      * 更新时间
      */
-    @Column(name = "UPDATED_TIME")
+    @Column(name = "updated_time")
     private Date updatedTime;
 
     /**
-     * 获取订单主键
+     * 获取订单主键;同时也是订单编号
      *
-     * @return id - 订单主键
+     * @return id - 订单主键;同时也是订单编号
      */
     public String getId() {
         return id;
     }
 
     /**
-     * 设置订单主键
+     * 设置订单主键;同时也是订单编号
      *
-     * @param id 订单主键
+     * @param id 订单主键;同时也是订单编号
      */
     public void setId(String id) {
         this.id = id;
@@ -220,18 +220,18 @@ public class Orders {
     }
 
     /**
-     * 获取邮费
+     * 获取邮费;默认可以为零，代表包邮
      *
-     * @return post_amount - 邮费
+     * @return post_amount - 邮费;默认可以为零，代表包邮
      */
     public Integer getPostAmount() {
         return postAmount;
     }
 
     /**
-     * 设置邮费
+     * 设置邮费;默认可以为零，代表包邮
      *
-     * @param postAmount 邮费
+     * @param postAmount 邮费;默认可以为零，代表包邮
      */
     public void setPostAmount(Integer postAmount) {
         this.postAmount = postAmount;
@@ -292,54 +292,54 @@ public class Orders {
     }
 
     /**
-     * 获取买家是否评价
+     * 获取买家是否评价;1：已评价，0：未评价
      *
-     * @return is_comment - 买家是否评价
+     * @return is_comment - 买家是否评价;1：已评价，0：未评价
      */
     public Integer getIsComment() {
         return isComment;
     }
 
     /**
-     * 设置买家是否评价
+     * 设置买家是否评价;1：已评价，0：未评价
      *
-     * @param isComment 买家是否评价
+     * @param isComment 买家是否评价;1：已评价，0：未评价
      */
     public void setIsComment(Integer isComment) {
         this.isComment = isComment;
     }
 
     /**
-     * 获取逻辑删除状态
+     * 获取逻辑删除状态;1: 删除 0:未删除
      *
-     * @return is_delete - 逻辑删除状态
+     * @return is_delete - 逻辑删除状态;1: 删除 0:未删除
      */
     public Integer getIsDelete() {
         return isDelete;
     }
 
     /**
-     * 设置逻辑删除状态
+     * 设置逻辑删除状态;1: 删除 0:未删除
      *
-     * @param isDelete 逻辑删除状态
+     * @param isDelete 逻辑删除状态;1: 删除 0:未删除
      */
     public void setIsDelete(Integer isDelete) {
         this.isDelete = isDelete;
     }
 
     /**
-     * 获取创建时间
+     * 获取创建时间（成交时间）
      *
-     * @return CREATED_TIME - 创建时间
+     * @return created_time - 创建时间（成交时间）
      */
     public Date getCreatedTime() {
         return createdTime;
     }
 
     /**
-     * 设置创建时间
+     * 设置创建时间（成交时间）
      *
-     * @param createdTime 创建时间
+     * @param createdTime 创建时间（成交时间）
      */
     public void setCreatedTime(Date createdTime) {
         this.createdTime = createdTime;
@@ -348,7 +348,7 @@ public class Orders {
     /**
      * 获取更新时间
      *
-     * @return UPDATED_TIME - 更新时间
+     * @return updated_time - 更新时间
      */
     public Date getUpdatedTime() {
         return updatedTime;
