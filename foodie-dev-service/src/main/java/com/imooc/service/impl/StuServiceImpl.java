@@ -21,9 +21,8 @@ public class StuServiceImpl implements StuService {
     @Override
     public Object saveStu() {
             Stu stu=new Stu();
-        stu.setRevision(0);
             stu.setName("zhang");
-            stu.setAge("26");
+            stu.setAge(26);
         stuMapper.insert(stu);
         return "ok";
     }
@@ -31,10 +30,9 @@ public class StuServiceImpl implements StuService {
     @Override
     public Object updateStu(int id) {
         Stu stu=new Stu();
-        stu.setRevision(0);
         stu.setId(id);
         stu.setName("lucy");
-        stu.setAge("27");
+        stu.setAge(27);
         stuMapper.updateByPrimaryKey(stu);
         return "ok";
     }
@@ -48,7 +46,7 @@ public class StuServiceImpl implements StuService {
     public void saveParent(){
             Stu stu =new Stu();
             stu.setName("parent");
-            stu.setAge("19");
+            stu.setAge(19);
             stuMapper.insert(stu);
 
     }
@@ -62,14 +60,14 @@ public class StuServiceImpl implements StuService {
     private void saveChild2() {
         Stu stu =new Stu();
         stu.setName("child-2");
-        stu.setAge("22");
+        stu.setAge(22);
         stuMapper.insert(stu);
     }
 
     private void saveChild1() {
         Stu stu =new Stu();
         stu.setName("child-1");
-        stu.setAge("11");
+        stu.setAge(11);
         stuMapper.insert(stu);
     }
 }
