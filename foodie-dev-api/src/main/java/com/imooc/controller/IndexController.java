@@ -22,7 +22,7 @@ public class IndexController {
     private CarouselService carouselService;
 
     @GetMapping("/carousel")
-    @ApiOperation(value = "获取首页的轮播图",notes = "获取首页的轮播图",httpMethod = "POST")
+    @ApiOperation(value = "获取首页的轮播图",notes = "获取首页的轮播图",httpMethod = "GET")
     public IMOOCJSONResult carousel(){
         List<Carousel> carousels = carouselService.queryAll(YseOrNo.YES.type);
         return IMOOCJSONResult.ok(carousels);
