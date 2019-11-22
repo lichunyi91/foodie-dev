@@ -43,8 +43,8 @@ public class ItemsController {
         ItemsParam itemsParam = itemService.queryItemParam(itemId);
         ItemInfoVO itemInfoVO=new ItemInfoVO();
         itemInfoVO.setItem(items);
-        itemInfoVO.setItemsImgList(itemsImgs);
-        itemInfoVO.setItemsSpecList(itemsSpecs);
+        itemInfoVO.setItemImgList(itemsImgs);
+        itemInfoVO.setItemSpecList(itemsSpecs);
         itemInfoVO.setItemsParam(itemsParam);
         return    IMOOCJSONResult.ok(itemInfoVO);
     }
