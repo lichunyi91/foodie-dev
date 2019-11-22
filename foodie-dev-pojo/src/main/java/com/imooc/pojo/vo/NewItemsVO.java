@@ -11,5 +11,5 @@ public class NewItemsVO {
     private String slogan;
     private String catImage;
     private String bgColor;
-    private List<SimpleItemVO> simpleItemVOList;
+    private List<SimpleItemVO> simpleItemList;
 }
