@@ -8,6 +8,7 @@ import com.imooc.pojo.*;
 import com.imooc.pojo.vo.CommentLevelCountsVO;
 import com.imooc.pojo.vo.ItemCommentVO;
 import com.imooc.service.ItemService;
+import com.imooc.utils.DesensitizationUtil;
 import com.imooc.utils.PagedGridResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -65,7 +66,7 @@ public class ItemServiceImpl implements ItemService {
         Example example = new Example(ItemsParam.class);
         Example.Criteria criteria = example.createCriteria();
         criteria.andEqualTo("itemId", itemId);
-        return  itemsParamMapper.selectOneByExample(example);
+        return itemsParamMapper.selectOneByExample(example);
     }
 
     @Transactional(propagation = Propagation.SUPPORTS)
@@ -74,34 +75,43 @@ public class ItemServiceImpl implements ItemService {
         Integer goodCounts = getCommentCounts(itemId, CommentLevel.GOOD.type);
         Integer normalCounts = getCommentCounts(itemId, CommentLevel.NORMAL.type);
         Integer badCounts = getCommentCounts(itemId, CommentLevel.BAD.type);
-        Integer totalCounts =goodCounts+normalCounts+badCounts ;
-        CommentLevelCountsVO levelCountsVO=new CommentLevelCountsVO();
+        Integer totalCounts = goodCounts + normalCounts + badCounts;
+        CommentLevelCountsVO levelCountsVO = new CommentLevelCountsVO();
         levelCountsVO.setGoodCounts(goodCounts);
         levelCountsVO.setNormalCounts(normalCounts);
         levelCountsVO.setBadCounts(badCounts);
         levelCountsVO.setTotalCounts(totalCounts);
         return levelCountsVO;
     }
+
     @Transactional(propagation = Propagation.SUPPORTS)
-     Integer getCommentCounts(String itemId,Integer level) {
-        ItemsComments itemsComments =new ItemsComments();
+    Integer getCommentCounts(String itemId, Integer level) {
+        ItemsComments itemsComments = new ItemsComments();
         itemsComments.setItemId(itemId);
         itemsComments.setCommentLevel(level);
         Integer count = itemsCommentsMapper.selectCount(itemsComments);
         return count;
     }
+
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
-    public PagedGridResult queryPagedComments(String itemId, Integer level,Integer page,Integer pageSize) {
-        Map<String,Object> map =new HashMap<String,Object>();
+    public PagedGridResult queryPagedComments(String itemId, Integer level, Integer page, Integer pageSize) {
+        Map<String, Object> map = new HashMap<String, Object>();
         map.put("itemId", itemId);
         map.put("level", level);
 
-        PageHelper.startPage(page,pageSize);
+        PageHelper.startPage(page, pageSize);
 
         List<ItemCommentVO> itemCommentVOS = itemsMapperCustom.queryItemComments(map);
-        PageInfo<?> pageInfo=new PageInfo<>(itemCommentVOS);
-        PagedGridResult pagedGridResult=new PagedGridResult();
+        for (ItemCommentVO itemCommentVO : itemCommentVOS) {
+            itemCommentVO.setNickname(DesensitizationUtil.commonDisplay(itemCommentVO.getNickname()));
+        }
+        return setterPagedGrid(itemCommentVOS,page);
+    }
+
+    private PagedGridResult setterPagedGrid(List<?> itemCommentVOS,Integer page) {
+        PageInfo<?> pageInfo = new PageInfo<>(itemCommentVOS);
+        PagedGridResult pagedGridResult = new PagedGridResult();
         pagedGridResult.setPage(page);
         pagedGridResult.setRows(itemCommentVOS);
         pagedGridResult.setTotal(pageInfo.getPages());
