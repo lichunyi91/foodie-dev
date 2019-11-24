@@ -4,6 +4,7 @@ import com.imooc.pojo.Items;
 import com.imooc.pojo.ItemsImg;
 import com.imooc.pojo.ItemsParam;
 import com.imooc.pojo.ItemsSpec;
+import com.imooc.pojo.bo.ShopcartVO;
 import com.imooc.pojo.vo.CommentLevelCountsVO;
 import com.imooc.utils.PagedGridResult;
 
@@ -27,4 +28,5 @@ public interface ItemService {
 
     public  PagedGridResult searchItems(Integer catId,String sort,Integer page,Integer pageSize);
 
+    public  List<ShopcartVO> queryItemsBySpecIds(String specIds);
 }
