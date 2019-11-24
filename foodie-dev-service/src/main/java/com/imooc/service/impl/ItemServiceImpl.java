@@ -7,6 +7,7 @@ import com.imooc.mapper.*;
 import com.imooc.pojo.*;
 import com.imooc.pojo.vo.CommentLevelCountsVO;
 import com.imooc.pojo.vo.ItemCommentVO;
+import com.imooc.pojo.vo.SearchItemsVO;
 import com.imooc.service.ItemService;
 import com.imooc.utils.DesensitizationUtil;
 import com.imooc.utils.PagedGridResult;
@@ -22,6 +23,7 @@ import java.util.Map;
 
 @Service
 public class ItemServiceImpl implements ItemService {
+
 
     @Autowired
     private ItemsMapper itemsMapper;
@@ -108,12 +110,33 @@ public class ItemServiceImpl implements ItemService {
         }
         return setterPagedGrid(itemCommentVOS,page);
     }
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public PagedGridResult searchItems(String keywords, String sort, Integer page, Integer pageSize) {
+        Map<String,Object> map=new HashMap<String,Object>();
+        map.put("keywords", keywords);
+        map.put("sort", sort);
+        PageHelper.startPage(page, pageSize);
+        List<SearchItemsVO> searchItemsVOS = itemsMapperCustom.searchItems(map);
+        return setterPagedGrid(searchItemsVOS,page);
+    }
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public PagedGridResult searchItems(Integer catId, String sort, Integer page, Integer pageSize) {
+        Map<String,Object> map=new HashMap<String,Object>();
+        map.put("catId", catId);
+        map.put("sort", sort);
+        PageHelper.startPage(page, pageSize);
+        List<SearchItemsVO> searchItemsVOS = itemsMapperCustom.searchItemsByThirdCat(map);
+        return  setterPagedGrid(searchItemsVOS, page);
+    }
 
-    private PagedGridResult setterPagedGrid(List<?> itemCommentVOS,Integer page) {
-        PageInfo<?> pageInfo = new PageInfo<>(itemCommentVOS);
+
+    private PagedGridResult setterPagedGrid(List<?> itemVOS,Integer page) {
+        PageInfo<?> pageInfo = new PageInfo<>(itemVOS);
         PagedGridResult pagedGridResult = new PagedGridResult();
         pagedGridResult.setPage(page);
-        pagedGridResult.setRows(itemCommentVOS);
+        pagedGridResult.setRows(itemVOS);
         pagedGridResult.setTotal(pageInfo.getPages());
         pagedGridResult.setRecords(pageInfo.getTotal());
         return pagedGridResult;
