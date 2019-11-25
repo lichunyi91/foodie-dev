@@ -12,11 +12,12 @@ import com.imooc.service.ItemService;
 import com.imooc.service.OrderService;
 import org.n3r.idworker.Sid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
-
+@Service
 public class OrderServiceImpl implements OrderService {
 
     @Autowired
@@ -50,6 +51,7 @@ public class OrderServiceImpl implements OrderService {
         newOrder.setReceiverName(userAddress.getReceiver());
         newOrder.setReceiverMobile(userAddress.getMobile());
         newOrder.setReceiverAddress(userAddress.getProvince()+userAddress.getCity()+userAddress.getDistrict()+userAddress.getDetail());
+        newOrder.setPostAmount(postAmount);
         newOrder.setPayMethod(payMethod);
         newOrder.setLeftMsg(leftMsg);
         newOrder.setIsComment(YseOrNo.NO.type);
